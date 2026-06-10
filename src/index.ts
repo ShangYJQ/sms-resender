@@ -69,6 +69,11 @@ async function napcat_loop() {
 		connected = false;
 	});
 
+	napcat.on("socket.close", () => {
+		console.log("连接断开");
+		connected = false;
+	});
+
 	await napcat.connect();
 }
 

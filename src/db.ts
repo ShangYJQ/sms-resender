@@ -89,6 +89,8 @@ export function useDB(options: UseDBOptions = {}) {
 				senderId: row.sender_id,
 				sender:
 					row.sender_alias?.trim() ||
+					row.sender_username?.trim() ||
+					row.message_user_alias?.trim() ||
 					(row.sender_id != null ? `sender_id:${row.sender_id}` : "unknown"),
 				body: row.body,
 				time: row.time,

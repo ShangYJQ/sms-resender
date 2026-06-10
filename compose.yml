@@ -1,0 +1,16 @@
+services:
+  sms-forwarder:
+    build:
+      context: .
+      network: host
+    container_name: sms-forwarder
+    restart: unless-stopped
+
+    environment:
+      TZ: Asia/Shanghai
+      QQ_USER_ID: "421207553"
+
+    volumes:
+      - /home/yjq/.purple/chatty/db/chatty-history.db:/data/chatty-history.db:ro
+
+    network_mode: host
